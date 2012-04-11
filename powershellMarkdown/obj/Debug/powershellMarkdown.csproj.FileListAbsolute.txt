@@ -1,0 +1,7 @@
+c:\dropbox\dropbox\projects\powershellMarkdown\powershellMarkdown\bin\Debug\powershellMarkdown.dll
+c:\dropbox\dropbox\projects\powershellMarkdown\powershellMarkdown\bin\Debug\powershellMarkdown.pdb
+c:\dropbox\dropbox\projects\powershellMarkdown\powershellMarkdown\obj\Debug\ResolveAssemblyReference.cache
+c:\dropbox\dropbox\projects\powershellMarkdown\powershellMarkdown\obj\Debug\powershellMarkdown.dll
+c:\dropbox\dropbox\projects\powershellMarkdown\powershellMarkdown\obj\Debug\powershellMarkdown.pdb
+c:\dropbox\dropbox\projects\powershellMarkdown\powershellMarkdown\bin\Debug\MarkdownSharp.dll
+c:\dropbox\dropbox\projects\powershellMarkdown\powershellMarkdown\bin\Debug\MarkdownSharp.pdb
