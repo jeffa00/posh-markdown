@@ -5,6 +5,7 @@ using System.Text;
 using System.Management.Automation;
 using MarkdownSharp;
 
+
 namespace powershellMarkdown
 {
     [Cmdlet(VerbsData.ConvertFrom, "Markdown")]
@@ -16,13 +17,13 @@ namespace powershellMarkdown
             ValueFromPipeline = true,
             ValueFromPipelineByPropertyName = true
         )]
-        public string MarkdownContent 
+        public string[] MarkdownContent 
         {
-            get { return _markdownContent; }
-            set { _markdownContent = value; }
+            get { return _markdownConent; }
+            set { _markdownConent = value; }
         }
 
-        private string _markdownContent = string.Empty;
+        private string[] _markdownConent = new string[1];
 
         /// <summary>
         /// when true, (most) bare plain URLs are auto-hyperlinked  
@@ -66,7 +67,7 @@ namespace powershellMarkdown
             get { return _emptyElementSuffix;  }
             set { _emptyElementSuffix = value; }
         }
-        private string _emptyElementSuffix = string.Empty;
+        private bool _emptyElementSuffix = false;
 
         /// <summary>
         /// when true, problematic URL characters like [, ], (, and so forth will be encoded 
@@ -106,28 +107,23 @@ namespace powershellMarkdown
             Mandatory = false,
             HelpMessage = "When true, bold and italic require non-word characters on either side"
         )]
-        public SwitchParameter StrictBoldItalic 
+        public SwitchParameter StrictBoldItalic { get; set; }
+        public string[] MarkdownContent 
         {
-            get { return _strictBoldItalic ; }
-            set { _strictBoldItalic = value; }
-        }
-        private bool _strictBoldItalic = false;
-
-        protected override void BeginProcessing()
-        {
-            base.BeginProcessing();
+            get { return _markdownConent; }
+            set { _markdownConent = value; }
         }
 
         protected override void ProcessRecord()
         {
             if (MarkdownContent != null && MarkdownContent.Length > 0)
             {
-                //StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder();
 
-                //foreach (var item in MarkdownContent)
-                //{
-                //    sb.Append(item + "\n");
-                //}
+                foreach (var item in MarkdownContent)
+                {
+                    sb.Append(item + "\n");
+                }
 
                 MarkdownOptions options = new MarkdownOptions
                 {
@@ -141,7 +137,7 @@ namespace powershellMarkdown
 
                 Markdown markyMark = new Markdown(options);
 
-                WriteObject(markyMark.Transform(MarkdownContent));
+                WriteObject(markyMark.Transform(sb.ToString()));
 
             }
         }
