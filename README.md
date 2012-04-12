@@ -8,6 +8,24 @@ Ultimately I want to build up a PowerShell and .Net environment for scripting a 
 
 That part is an experiment, but this part, Posh Markdown, can stand alone and be useful.
 
+#Quick How-To
+All you really need is the DLL.
+    import-module C:\<YOUR PATH HERE>\powershellMarkdown.dll
+
+Once you import the module you can see it by calling Get-Module.
+
+Now let's *pipe the sh|t right outta your home!* 
+I mean, let's pipe some markdown text through our cmdlet.
+
+    Get-Content Markdown_Documentation_Basics.text | Out-String | ConvertFrom-Markdown -AutoHyperlink -AutoNewlines -EncodeProblemUrlCharacters -LinkEmails -StrictBoldItalic -Verbose
+
+The example uses one of the test files from MarkdownSharp.
+
+-Get-Content reads the file into an string array.
+-Out-String turns that array into a single string much like the one we need for conversion.
+-ConvertFrom-Markdown is essentially a comdlet wrapper for MarkdownSharp.
+--All the options are, well, optional. Try including them or not to get the results you want.
+
 ##PowerShell
 Command line environment for Windows. Allows for scripting in the vein of Unix.
 
