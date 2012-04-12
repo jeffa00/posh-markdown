@@ -122,13 +122,6 @@ namespace powershellMarkdown
         {
             if (MarkdownContent != null && MarkdownContent.Length > 0)
             {
-                //StringBuilder sb = new StringBuilder();
-
-                //foreach (var item in MarkdownContent)
-                //{
-                //    sb.Append(item + "\n");
-                //}
-
                 MarkdownOptions options = new MarkdownOptions
                 {
                     AutoHyperlink = this.AutoHyperlink,
