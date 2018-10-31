@@ -1,4 +1,4 @@
-﻿#Posh Markdown
+﻿# Posh Markdown
 Posh == PowerShell
 Markdown == Markdown formatting
 
@@ -8,8 +8,9 @@ Ultimately I want to build up a PowerShell and .Net environment for scripting a 
 
 That part is an experiment, but this part, Posh Markdown, can stand alone and be useful.
 
-#Quick How-To
+# Quick How-To
 All you really need is the DLL.
+
     import-module C:\<YOUR PATH HERE>\powershellMarkdown.dll
 
 Once you import the module you can see it by calling Get-Module.
@@ -21,26 +22,27 @@ I mean, let's pipe some markdown text through our cmdlet.
 
 The example uses one of the test files from MarkdownSharp.
 
--Get-Content reads the file into an string array.
--Out-String turns that array into a single string much like the one we need for conversion.
--ConvertFrom-Markdown is essentially a comdlet wrapper for MarkdownSharp.
---All the options are, well, optional. Try including them or not to get the results you want.
+- `Get-Content` reads the file into an string array.
+- `Out-String` turns that array into a single string much like the one we need for conversion.
+- `ConvertFrom-Markdown` is essentially a comdlet wrapper for MarkdownSharp.
 
-##PowerShell
+All the options are, well, optional. Try including them or not to get the results you want.
+
+## PowerShell
 Command line environment for Windows. Allows for scripting in the vein of Unix.
 
 Big difference: Unix passes text around whereas PowerShell passes .Net objects.
 
 I think PowerShell is one of the best kept secrets in the Windows world. You can do a ton with PowerShell if you learn not to fear the commandline.
 
-##Markdown
+## Markdown
 Markdown is a way of formatting plain text documents in such a way that they can be easily (he said with great confidence) into HTML.
 
 Lends itself to super simple writing. Gets the formatting out of the way.
 
 Popular with some websites (like Github and StackOverflow) because (among other things) it allows for formatting without accepting raw HTML from users.
 
-##MarkdownSharp
+## MarkdownSharp
 The .Net library used by StackOverflow. 
 
 This is a base library for doing the Markdown conversions.
